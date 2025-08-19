@@ -30,7 +30,8 @@ Prepare an Excel file (in the same folder as the notebook) with at least the fol
  - Exp: Experimental results for each screening point.
  - Columns include: Name (matching a Reaction name), R1, R2, R3, Ar (ligand choices by abbreviation), solvent, T(K) (temperature in Kelvin), and target columns such as yield, ee (enantioselective excess), regio, etc. Missing target values will be dropped automatically.
  - Screen_simulate (optional): If you want to generate predictions on new combinations, include this sheet. Each column (e.g. R1, R2, R3, Ar, solvent, T(K)) lists possible values. The code will create all combinations of these to simulate.
-Example: In the provided workbook Data_2503-paper_250425.xlsx, “Ligands” maps abbreviations like “Ph” to SMILES, “Reactions” gives base SMILES for reactants/products/catalysts, and “Exp” contains measured ee, yield, etc. The code reads these sheets and constructs “full” molecule SMILES by substituting ligands into placeholders.
+
+Example: In the provided workbook Data_2503-paper_250425.xlsx, “Ligands” maps abbreviations like “Ph” to SMILES, “Reactions” gives base SMILES for reactants/products/catalysts, and “Exp” contains measured ee, yield, etc. The code reads these sheets and constructs full molecule SMILES by substituting ligands into placeholders.
 
 ## How to use (Jupyter Notebook)
  - Open Notebook: Launch JupyterLab or Jupyter Notebook and open the provided .ipynb file. The code assumes %matplotlib inline is enabled for plotting.
@@ -56,15 +57,15 @@ Example: In the provided workbook Data_2503-paper_250425.xlsx, “Ligands” map
    
    4) Modeling
    Select a pipeline (default examples provided): RF_pipeline (Random Forest), SVR_pipeline (Support Vector Regression)
-   Train/validation split and 10-fold CV cells are provided.
-   Metrics reported: RMSE, MAE, R².
-   Plots saved as VSplot_{target}_*.png and VSplot_{target}_log*.png (Pred vs Actual).
+   Train/validation split and 10-fold CV cells are provided. (Metrics reported: RMSE, MAE, R²)
    
-   5) Train Final Model
+   6) Train Final Model
    Fit on the filtered full training set.
 
- - Predict on new data (screening) Use one of the two flows:
+ - Predict on new data (screening) with one of the two flows:
+   
    A. Provide your own Exp_Simulate sheet
+   
    B. Generate a large combinatorial screen
 
 ## Key Features and Workflow
